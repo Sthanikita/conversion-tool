@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 400;
+            font-style: normal;
+            padding:10px;
+        }
+        th, td {
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            font-family: "Protest Guerrilla", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: underline;
+            color:#ff5722;
+        }
+        p, #conversionForm {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: larger;
+        }
+      
+    </style>
+</head>
+<body style="background-color:#ffe082;">
+    <marquee bgcolor= "pink" direction="right" scrollamount="20">
+        WELCOME TO THE PAGE!!!
+    </marquee>
+    <h1>Conversion Tool</h1>
+
+    <form id="conversionForm">
+        <label for="area_sq"><b>Area in Square meter:</b></label>
+        <input type="number" id="area_sq" required>
+    </form>
+
+    <br>
+    
+    <table>
+        <tr>
+            <td><b>Ropani</b></td>
+            <td><input type="number" id="ropaniInput"></td>
+        </tr>
+        <tr>
+            <td><b>Anna</b></td>
+            <td><input type="number" id="annaInput"></td>
+        </tr>
+        <tr>
+            <td><b>Paisa</b></td>
+            <td><input type="number" id="paisaInput"></td>
+        </tr>
+        <tr>
+            <td><b>Dam</b></td>
+            <td><input type="number" id="damInput"></td>
+        </tr>
+    </table>
+
+    <br>
+    
+    <table>
+        <tr>
+            <td><b>Bigha</b></td>
+            <td><input type="number" id="bighaInput"></td>
+        </tr>
+        <tr>
+            <td><b>Kattha</b></td>
+            <td><input type="number" id="katthaInput"></td>
+        </tr>
+        <tr>
+            <td><b>Dhur</b></td>
+            <td><input type="number" id="dhurInput"></td>
+        </tr>
+    </table>
+    <hr bgcolor="blue">
+
+    <h1>Specification</h1><hr>
+
+<p>
+    The following is a partial list of everyday units used to calculate land area in Nepal:
+
+- 1 Khetmuri = 25 Ropani<br>
+- 1 Bigha (बिघा) = 20 Kattha (कठ्ठा) = 6772.63 m² = 72900 sq.ft. = 13.31 Ropani<br>
+- 1 Katha (कठ्ठा) = 20 Dhur (धुर) = 338.63 m² = 3645 sq.ft.<br>
+- 1 Dhur (धुर) = 16.93 m² = 182.25 sq.ft.<br>
+- 1 Ropani (रोपनी) = 16 Aana (आना) = 64 Paisa (पैसा) = 508.72 m² = 5476 sq.ft. = 256 Daam (दाम)<br>
+- 1 Aana (आना)= 4 Paisa (पैसा) = 31.80 m² = 342.25 sq. ft. = 16 Daam (दाम)<br>
+- 1 Paisa (पैसा) = 4 Daam (दाम) = 7.95 m² = 85.56 sq. ft.<br>
+- 1 Daam (दाम) = 1.99 m² = 21.39 sq. ft.<br>
+
+The units of measurement of area of land depends on the part of the country where they are being used, with the Bigha-Katha-Dhur measurements common in the Terai region while the Ropani-Aana measurements are common in hilly and mountainous regions.
+</p>
+   <script>
+    // Conversion factors
+    const ropaniInSqmeter = 508.72;
+    const annaInSqmeter = ropaniInSqmeter / 16;
+    const paisaInSqmeter = annaInSqmeter / 4;
+    const damInSqmeter = paisaInSqmeter / 4;
+
+    const BighaInSqmeter = 6772.63;
+    const KatthaInSqmeter = BighaInSqmeter / 20;
+    const DhurInSqmeter = KatthaInSqmeter / 20;
+
+    // Function to update Ropani/Anna/Paisa/Dam and Bigha/Kattha/Dhur based on Square Meter input
+    function updateFromSqMeters() {
+        const areaSqMeters = parseFloat(document.getElementById('area_sq').value);
+
+        // Ropani/Anna/Paisa/Dam calculations
+        let ropani = Math.floor(areaSqMeters / ropaniInSqmeter);
+        let remainderRopani = areaSqMeters % ropaniInSqmeter;
+        let anna = Math.floor(remainderRopani / annaInSqmeter);
+        remainderRopani = remainderRopani % annaInSqmeter;
+        let paisa = Math.floor(remainderRopani / paisaInSqmeter);
+        remainderRopani = remainderRopani % paisaInSqmeter;
+        let dam = Math.round(remainderRopani / damInSqmeter);
+
+        document.getElementById('ropaniInput').value = ropani;
+        document.getElementById('annaInput').value = anna;
+        document.getElementById('paisaInput').value = paisa;
+        document.getElementById('damInput').value = dam;
+
+        // Bigha/Kattha/Dhur calculations
+        let Bigha = Math.floor(areaSqMeters / BighaInSqmeter);
+        let remainderBigha = areaSqMeters % BighaInSqmeter;
+        let Kattha = Math.floor(remainderBigha / KatthaInSqmeter);
+        remainderBigha = remainderBigha % KatthaInSqmeter;
+        let Dhur = Math.round(remainderBigha / DhurInSqmeter);
+
+        document.getElementById('bighaInput').value = Bigha;
+        document.getElementById('katthaInput').value = Kattha;
+        document.getElementById('dhurInput').value = Dhur;
+    }
+
+    // Function to calculate Square Meters based on Ropani/Anna/Paisa/Dam input
+    function updateFromRopaniSystem() {
+        let ropani = parseFloat(document.getElementById('ropaniInput').value) || 0;
+        let anna = parseFloat(document.getElementById('annaInput').value) || 0;
+        let paisa = parseFloat(document.getElementById('paisaInput').value) || 0;
+        let dam = parseFloat(document.getElementById('damInput').value) || 0;
+
+        let totalSqMeters = (ropani * ropaniInSqmeter) + (anna * annaInSqmeter) + (paisa * paisaInSqmeter) + (dam * damInSqmeter);
+        document.getElementById('area_sq').value = totalSqMeters;
+        updateFromSqMeters();
+    }
+
+    // Function to calculate Square Meters based on Bigha/Kattha/Dhur input
+    function updateFromBighaSystem() {
+        let Bigha = parseFloat(document.getElementById('bighaInput').value) || 0;
+        let Kattha = parseFloat(document.getElementById('katthaInput').value) || 0;
+        let Dhur = parseFloat(document.getElementById('dhurInput').value) || 0;
+
+        let totalSqMeters = (Bigha * BighaInSqmeter) + (Kattha * KatthaInSqmeter) + (Dhur * DhurInSqmeter);
+        document.getElementById('area_sq').value = totalSqMeters;
+        updateFromSqMeters();
+    }
+
+    // Add event listeners to trigger simultaneous updates
+    document.getElementById('area_sq').addEventListener('input', updateFromSqMeters);
+    document.getElementById('ropaniInput').addEventListener('input', updateFromRopaniSystem);
+    document.getElementById('annaInput').addEventListener('input', updateFromRopaniSystem);
+    document.getElementById('paisaInput').addEventListener('input', updateFromRopaniSystem);
+    document.getElementById('damInput').addEventListener('input', updateFromRopaniSystem);
+    document.getElementById('bighaInput').addEventListener('input', updateFromBighaSystem);
+    document.getElementById('katthaInput').addEventListener('input', updateFromBighaSystem);
+    document.getElementById('dhurInput').addEventListener('input', updateFromBighaSystem);
+   </script>
+</body>
+</html>

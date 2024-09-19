@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion - Signup</title>
+    <style>
+        .navbar {
+            background-color: #FFAB91;
+            border-radius: 11px;
+        }
+        .navbar ul {
+            overflow: auto;
+        }
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20px;
+        }
+        .navbar li a {
+            color: #AB47BC;
+            padding: 3px 3px;
+            text-align: justify;
+            text-decoration: none;
+            font-family: "Roboto Condensed", sans-serif;
+            font-weight: 800;
+            font-size: larger;
+        }
+        h1 {
+            text-decoration: underline;
+            text-align: center;
+        }
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #FFF9C4;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        button {
+            padding: 2px 9px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 2px solid #800000;
+            border-radius: 5px;
+            background-color: transparent;
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+            font-size: larger;
+            color:#AB47BC;
+
+            margin-left: 600px;
+        }
+        h1{
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 1000;
+            font-style: normal;
+            font-size: 30px;
+            color:#AB47BC;
+
+
+        }
+        h3{
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-size:20px;
+            text-decoration:underline;
+        }
+       ul, p{
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-size:20px;
+          
+        }
+        .box{
+            border: 1px solid black;
+            width:  45%;
+            height:300px;
+            display: inline-block;
+            background-color:#FFF59D;
+    padding: 10px;
+    vertical-align: top;
+    margin-left: 30px;
+   
+        }
+        
+     
+    </style>
+</head>
+<body bgcolor="#ffffc4">
+   
+    <header>
+        <nav class="navbar" id="navibar">
+    
+            <ul>
+                <li><a href="#box">Home</a></li>
+                <li><a href="RAPD-BKD.html">Conversion Tool</a></li>
+         
+                <li><button onclick="openModal()">Sign Up</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1>Sign Up</h1>
+            <form id="signupForm">
+                <div>
+                    <label for="email"><b>Email:</b></label>
+                    <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+                </div>
+                <br>
+                <div>
+                    <label for="Name"><b>Name:</b></label>
+                    <input type="text" name="Name" id="Name" placeholder="Enter Name" required>
+                </div>
+                <br>
+                <div>
+                    <label for="Surname"><b>Surname:</b></label>
+                    <input type="text" name="Surname" id="Surname" placeholder="Enter Surname" required>
+                </div>
+                <br>
+                <div>
+                    <label for="Password"><b>Password:</b></label>
+                    <input type="password" name="password" id="Password" placeholder="Enter Password" required>
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Submit Now">
+                </div>
+            </form>
+        </div>
+    </div>
+    <h3>Traditional Land Measurment Unit of Nepal </h3>
+    <p>
+        In Nepal, traditional units of land measurement such as Ropani-Ana in hilly regions and Bigha-Katha in the Terai were historically used for taxation purposes, based on the land's productivity. Over time, the evolution of land surveying techniques progressed from Sarpat Napi (rope measurement) and Compass Napi to more advanced methods like plane table surveys with telescopic alidades. Today, the use of modern instruments like total stations has become common, reflecting technological advancements in land measurement. As a result, land measurement has become a highly sensitive issue, intertwined with ownership, taxation, and legal frameworks.</p>
+    <section id="box">
+     
+       
+        <div class="box"><p>
+            <h3>Ropani-Ana System of Measurement:</h3>
+            <p>In the regime of Janga Bahadur Rana this system of land measurement was started in Nepal.The Ropani-Ana system of land Measurement is implemented in Valley areas of Nepal
+                mostly in the hilly region of a country.
+                <ul><li> 1 Ropani= 74 feet x 74 feet = 5476 sq. feet = 508.74 sq. meters </li>
+                <li> 1 Ropani = 16 Anna = 5476 sq. feet = 508.74 sq. meters</li>
+                <li> 1 Anna = 4 Paisa = 342.25 sq. feet = 31.79 sq. meter</li>
+                <li>1 Paisa = 4 Dam = 85.56 sq. feet = 7.95 sq. meter</li>
+                <li> 1 Dam = 21.39 sq. feet = 1.98 sq. meter </li></ul>
+               
+    
+    
+     
+    </p>
+        </p></div>
+        <div class="box"><h3>Bigha-Katha-Dhur Measurement System:<h3></h3>
+        <p>This land measurment system is mostly used in the terai region og Nepal.
+    
+    
+        </p>
+    <ul><li> 1 Bigha= 270 feet x 270 feet </li>
+    <li>1 Bigha= 20 Kattha = 72900 sq. feet= 6772.63 sq. meter</li>
+    <li>  1 kattha= 20 Dhur= 3645 sq. feet= 338.63 sq. meter</li>
+    <li>1 Dhur = 182.25 sq. feet=16.93 sq. meter</li></ul></div>
+    </section>
+   
+    
+    <script>
+        // Open modal function
+        function openModal() {
+            document.getElementById("signupModal").style.display = "block";
+        }
+
+        // Close modal function
+        function closeModal() {
+            document.getElementById("signupModal").style.display = "none";
+        }
+
+        // Form submission handling with JavaScript
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the input values (you can add validation if needed)
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('Name').value;
+            const surname = document.getElementById('Surname').value;
+            const password = document.getElementById('Password').value;
+            
+            // Example simple form validation
+            if (email && name && surname && password) {
+                // Show thank you message
+                alert("Thank you for signing up, " + name + "!");
+                
+                // Reset form
+                document.getElementById('signupForm').reset();
+                
+                // Close modal
+                closeModal();
+            } else {
+                alert("Please fill all the fields.");
+            }
+        });
+
+        // Close the modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('signupModal')) {
+                closeModal();
+            }
+        }
+    </script>
+  
+</body>
+</html>
