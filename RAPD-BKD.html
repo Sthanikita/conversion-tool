@@ -101,7 +101,7 @@
 
 The units of measurement of area of land depends on the part of the country where they are being used, with the Bigha-Katha-Dhur measurements common in the Terai region while the Ropani-Aana measurements are common in hilly and mountainous regions.
 </p>
-   <script>
+<script>
     // Conversion factors
     const ropaniInSqmeter = 508.72;
     const annaInSqmeter = ropaniInSqmeter / 16;
@@ -120,26 +120,26 @@ The units of measurement of area of land depends on the part of the country wher
         let ropani = Math.floor(areaSqMeters / ropaniInSqmeter);
         let remainderRopani = areaSqMeters % ropaniInSqmeter;
         let anna = Math.floor(remainderRopani / annaInSqmeter);
-        remainderRopani = remainderRopani % annaInSqmeter;
+        remainderRopani %= annaInSqmeter;
         let paisa = Math.floor(remainderRopani / paisaInSqmeter);
-        remainderRopani = remainderRopani % paisaInSqmeter;
-        let dam = Math.round(remainderRopani / damInSqmeter);
+        remainderRopani %= paisaInSqmeter;
+        let dam = remainderRopani / damInSqmeter;
 
         document.getElementById('ropaniInput').value = ropani;
         document.getElementById('annaInput').value = anna;
         document.getElementById('paisaInput').value = paisa;
-        document.getElementById('damInput').value = dam;
+        document.getElementById('damInput').value = dam.toFixed(3);
 
         // Bigha/Kattha/Dhur calculations
         let Bigha = Math.floor(areaSqMeters / BighaInSqmeter);
         let remainderBigha = areaSqMeters % BighaInSqmeter;
         let Kattha = Math.floor(remainderBigha / KatthaInSqmeter);
-        remainderBigha = remainderBigha % KatthaInSqmeter;
-        let Dhur = Math.round(remainderBigha / DhurInSqmeter);
+        remainderBigha %= KatthaInSqmeter;
+        let Dhur = remainderBigha / DhurInSqmeter;
 
         document.getElementById('bighaInput').value = Bigha;
         document.getElementById('katthaInput').value = Kattha;
-        document.getElementById('dhurInput').value = Dhur;
+        document.getElementById('dhurInput').value = Dhur.toFixed(3);
     }
 
     // Function to calculate Square Meters based on Ropani/Anna/Paisa/Dam input
@@ -150,7 +150,7 @@ The units of measurement of area of land depends on the part of the country wher
         let dam = parseFloat(document.getElementById('damInput').value) || 0;
 
         let totalSqMeters = (ropani * ropaniInSqmeter) + (anna * annaInSqmeter) + (paisa * paisaInSqmeter) + (dam * damInSqmeter);
-        document.getElementById('area_sq').value = totalSqMeters;
+        document.getElementById('area_sq').value = totalSqMeters.toFixed(3);
         updateFromSqMeters();
     }
 
@@ -161,7 +161,7 @@ The units of measurement of area of land depends on the part of the country wher
         let Dhur = parseFloat(document.getElementById('dhurInput').value) || 0;
 
         let totalSqMeters = (Bigha * BighaInSqmeter) + (Kattha * KatthaInSqmeter) + (Dhur * DhurInSqmeter);
-        document.getElementById('area_sq').value = totalSqMeters;
+        document.getElementById('area_sq').value = totalSqMeters.toFixed(3);
         updateFromSqMeters();
     }
 
@@ -174,6 +174,7 @@ The units of measurement of area of land depends on the part of the country wher
     document.getElementById('bighaInput').addEventListener('input', updateFromBighaSystem);
     document.getElementById('katthaInput').addEventListener('input', updateFromBighaSystem);
     document.getElementById('dhurInput').addEventListener('input', updateFromBighaSystem);
-   </script>
+</script>
+
 </body>
 </html>
